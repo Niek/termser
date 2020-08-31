@@ -5,8 +5,9 @@
 ![Screenshot of Termser](.github/screenshot.png)
 
 ### Features:
-* Run a full Chrome browser in your terminal (iTerm2 >= 3 only at the moment)
+* Run a full Chrome browser in your terminal ([iTerm2 only](https://www.iterm2.com/documentation-images.html) at the moment)
 * Ideal for quick downloads or web debugging over SSH
+* Blocks ads and trackers (configurable)
 * Does not require a graphical browser install, runs a headless browser
 
 ### Installation:
