@@ -44,8 +44,36 @@ var argv = require('yargs')
 
   const height = parseInt((argv.width / term.width) * term.height * 2.4);
 
-  const browser = await chromium.launch({ executablePath: '/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary' });
+  const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: argv.width, height } });
+  const client = await page.context().newCDPSession(page);
+
+  term.clear();
+  term.hideCursor(true);
+
+  // Acquire a screenshot every half a second and update the terminal
+  (async function getScreenshot() {
+    /*
+    // Alternative way, not using this since the resolution is too low
+    const screenshot = await page.screenshot({ type: 'png', path: '/tmp/termser.png' });
+    term.drawImage('/tmp/termser.png', { width: term.width, height: term.height });
+    */
+    try {
+      const screenshot = await page.screenshot({ type: 'png' });
+      const buffer = Buffer.from(screenshot, 'base64');
+      console.log(ansiEscapes.image(buffer, { height: '100%' }));
+    } catch (e) { }
+    setInterval(getScreenshot, 1000);
+  })();
+
+  // Below should be a better method... but it crashes iTerm
+  /*
+  await client.send('Page.startScreencast', { format: 'jpeg', quality: 80 });
+  client.on('Page.screencastFrame', async (frame) => {
+    const buffer = Buffer.from(frame.data, 'base64');
+    console.log(ansiEscapes.image(buffer, { height: '100%' }));
+  });
+  */
 
   if (argv.adblock) {
     adblocker.fromPrebuiltAdsAndTracking(fetch).then((blocker) => {
@@ -91,28 +119,14 @@ var argv = require('yargs')
 
   // Update terminal title
   page.on('framenavigated', async (frame) => {
-    const title = await frame.title();
-    term.windowTitle(title);
+    try {
+      const title = await frame.title();
+      term.windowTitle(title);
+    } catch (e) { }
   });
 
   // Load requested page
   await page.goto(argv.url);
 
-  term.clear();
-  term.hideCursor(true);
 
-  // Acquire a screenshot every half a second and update the terminal
-  (async function getScreenshot() {
-    /*
-    // Alternative way, not using this since the resolution is too low
-    const screenshot = await page.screenshot({ type: 'png', path: '/tmp/termser.png' });
-    term.drawImage('/tmp/termser.png', { width: term.width, height: term.height });
-    */
-    try {
-      const screenshot = await page.screenshot({ type: 'png' });
-      const buffer = Buffer.from(screenshot, 'base64');
-      console.log(ansiEscapes.image(buffer, { height: '100%' }));
-    } catch (e) { }
-    setInterval(getScreenshot, 500);
-  })();
 })();
