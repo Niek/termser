@@ -1,0 +1,17 @@
+{
+  "name": "termser",
+  "version": "1.0.0",
+  "description": "Termser - running a full browser in your terminal",
+  "main": "index.js",
+  "repository": "https://github.com/Niek/termser.git",
+  "author": "Niek van der Maas",
+  "license": "MIT",
+  "dependencies": {
+    "@cliqz/adblocker-playwright": "^1.18.2",
+    "ansi-escapes": "^4.3.1",
+    "cross-fetch": "^3.0.5",
+    "playwright": "^1.3.0",
+    "terminal-kit": "^1.43.0",
+    "yargs": "^15.4.1"
+  }
+}
