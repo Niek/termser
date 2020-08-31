@@ -1,7 +1,7 @@
 {
   "name": "termser",
   "version": "1.0.0",
-  "description": "Termser - running a full browser in your terminal",
+  "description": "Termser - run a full web browser in your terminal",
   "main": "index.js",
   "repository": "https://github.com/Niek/termser.git",
   "author": "Niek van der Maas",

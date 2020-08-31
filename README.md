@@ -1,5 +1,5 @@
 # Termser
-#### Running a full browser in your terminal
+#### Run a full web browser in your terminal
 
 ### Screenshot:
 ![Screenshot of Termser](.github/screenshot.png)
