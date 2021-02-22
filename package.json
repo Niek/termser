@@ -7,10 +7,10 @@
   "author": "Niek van der Maas",
   "license": "MIT",
   "dependencies": {
-    "@cliqz/adblocker-playwright": "^1.18.2",
+    "@cliqz/adblocker-playwright": "^1.20.2",
     "ansi-escapes": "^4.3.1",
-    "cross-fetch": "^3.0.5",
-    "playwright": "^1.3.0",
+    "cross-fetch": "^3.0.6",
+    "playwright": "^1.8.0",
     "terminal-kit": "^2.0.2",
     "yargs": "^16.0.0"
   }
