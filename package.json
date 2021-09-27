@@ -12,6 +12,6 @@
     "cross-fetch": "^3.0.6",
     "playwright": "^1.8.0",
     "terminal-kit": "^2.0.2",
-    "yargs": "^16.0.0"
+    "yargs": "^17.2.1"
   }
 }
