@@ -8,10 +8,14 @@
   "license": "MIT",
   "dependencies": {
     "@cliqz/adblocker-playwright": "^1.20.2",
-    "ansi-escapes": "^4.3.1",
+    "ansi-escapes": "^5.0.0",
     "cross-fetch": "^3.0.6",
+    "get-pixels": "^3.3.3",
     "playwright": "^1.8.0",
     "terminal-kit": "^2.0.2",
-    "yargs": "^16.0.0"
+    "yargs": "^17.0.0"
+  },
+  "devDependencies": {
+    "standard": "^16.0.4"
   }
 }
