@@ -76,6 +76,7 @@ const argv = require('yargs')
         terminal.hideCursor(false)
         await browser.close()
         process.exit()
+        break
       case 'ESCAPE':
       case 'ENTER':
       case 'BACKSPACE':
