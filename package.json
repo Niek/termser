@@ -12,7 +12,7 @@
     "cross-fetch": "^3.0.6",
     "get-pixels": "^3.3.3",
     "playwright": "^1.8.0",
-    "terminal-kit": "^2.0.2",
+    "terminal-kit": "^3.0.0",
     "yargs": "^17.0.0"
   },
   "devDependencies": {
